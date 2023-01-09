@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pythoneersdaglogging"
+version = "0.1.0"
+description = "exercises for pythoneersdag january 2023"
+authors = ["Coen Smulders <coen.smulders@ordina.nl>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+structlog = "^22.3.0"
+pytest = "^7.2.0"
+#used for exercise
+#rich = "^13.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

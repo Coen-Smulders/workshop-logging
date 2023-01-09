@@ -2,6 +2,7 @@ import pytest
 import structlog
 import main
 
+
 @pytest.fixture(name="log_output")
 def fixture_log_output():
     return structlog.testing.LogCapture()
@@ -56,4 +57,3 @@ def test_logging(log_output):
         },
     ]
     assert str(actual) == str(expected)
-

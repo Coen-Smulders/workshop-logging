@@ -121,15 +121,31 @@ Try to write a unit test, that test the logging output of the main function foun
 
 documentation on testing of logging can be found [here](https://www.structlog.org/en/stable/testing.html)
 
+# Bonus: Full customization
+
+Structlog is highly customizable. This bonus exercise will allow you to create an understanding how to do this.
+Multiple components are to be used for this exercise, including:
+* Configuration of structlog
+* Writing a custom logging api
+* Writing your own processors
+* Defining your own log level
+
 ## Bonus: Exercise 11
 Make custom components for structlog that will allow the follow line of code to work:
 ```python
 import structlog
 
 logger = structlog.get_logger()
+logger.debug("debug message")
+logger.info("info message")
+logger.warning("warn message")
+logger.error("error message")
+logger.critical("critical message")
 logger.login_attempt("user tried to log in on the system", True, user="pythoneer")
 ```
-resulting in the following output on the console (where the timestamp is the actual time given in the format below)
+resulting in the following output on the console (where the timestamp is using ISO 8601 format)
 ```json
-{"event":"user tried to log in on the system", "login_successful":true, "user":"pythoneer", "timestamp":"YYYY-MM-DD HH:mm:SS±HHMM"}
+{"event": "error message", "level": "error", "timestamp": "YYYY-MM-DDTHH:mm:SS±HHMM"}
+{"event": "critical message", "level": "critical", "timestamp": "YYYY-MM-DDTHH:mm:SS±HHMM"}
+{"event": "user tried to log in on the system", "level": "audit", "login_successful": true, "timestamp": "YYYY-MM-DDTHH:mm:SS±HHMM", "user": "pythoneer"}
 ```

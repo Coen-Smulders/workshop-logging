@@ -1,6 +1,6 @@
+import main
 import pytest
 import structlog
-import main
 
 
 @pytest.fixture(name="log_output")

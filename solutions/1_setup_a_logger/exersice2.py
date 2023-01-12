@@ -4,7 +4,7 @@ import logging
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
-# Logging level also has to be set for the handeler, since the handler also has WARNING as default level
+# Logging level also has to be set for the handler, since the handler also has WARNING as default level
 ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 logger.addHandler(ch)

@@ -50,11 +50,11 @@ class CustomPrintLoggerFactory:
 
 
 class FilterLogLevel:
-    def __init__(self, min_level):
+    def __init__(self, min_level=0):
         self.min_level = min_level
 
     def __call__(self, logger, method_name, event_dict: EventDict):
-        if _NAME_TO_LEVEL[method_name] < self.min_level:
+        if _NAME_TO_LEVEL.get(method_name, 0) < self.min_level:
             raise structlog.DropEvent
         return event_dict
 

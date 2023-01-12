@@ -31,9 +31,6 @@ _LEVEL_TO_NAME = {
 
 
 class SematicLogger(structlog.BoundLogger):
-    def __int__(self):
-        pass
-
     def login_attempt(self, event, login_successful, **kwargs):
         return self._proxy_to_logger(
             "audit", event, login_successful=login_successful, **kwargs

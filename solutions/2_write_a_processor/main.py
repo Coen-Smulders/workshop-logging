@@ -26,10 +26,10 @@ structlog.configure(
     ],
 )
 
-logger = structlog.get_logger()
-
 
 def main():
+    logger = structlog.get_logger()
+
     logger.debug(
         "calling ssh on linux virtual machine",
         server="lsrv0023",
